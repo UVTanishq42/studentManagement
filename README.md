@@ -1,1 +1,1 @@
-Project: Student Management System
+student supperts registration

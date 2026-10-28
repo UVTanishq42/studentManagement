@@ -27,3 +27,26 @@ document.getElementById("form").onsubmit = function(e) {
 document.getElementById("form").onreset = function() {
     document.getElementById("result").innerText = "";
 };
+
+function searchStudent() {
+    let value = document.getElementById("search")
+        .value.toLowerCase();
+
+    let rows = document.querySelectorAll("#studentTable tr");
+    let found = false;
+
+    rows.forEach(function(row) {
+        let name = row.cells[0].textContent.toLowerCase();
+        let roll = row.cells[1].textContent.toLowerCase();
+
+        if (name.includes(value) || roll.includes(value)) {
+            row.style.display = "";
+            found = true;
+        } else {
+            row.style.display = "none";
+        }
+    });
+
+    document.getElementById("message").textContent =
+        found ? "Student found" : "Student not found";
+}
